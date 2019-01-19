@@ -49,4 +49,5 @@ class BookInstanceAdmin(admin.ModelAdmin):
 
 """
 some comments here to check git synch
+second try
 """
