@@ -25,6 +25,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^catalog/', include('catalog.urls')),
     url(r'^$', RedirectView.as_view(url='/catalog/', permanent=True)),
-]
+    ]
+
+urlpatterns += [
+    path('catalog/', include('catalog.urls')),  # here or in catalog\urls.py or change to url(r'^catalog/'...?
+    ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
