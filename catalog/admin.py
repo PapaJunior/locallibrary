@@ -3,11 +3,12 @@ from django.contrib import admin
 # Register your models here.
 from .models import Author, Genre, Book, BookInstance, Language
 
-#admin.site.register(Book)
-#admin.site.register(Author)
+# admin.site.register(Book)
+# admin.site.register(Author)
 admin.site.register(Genre)
-#admin.site.register(BookInstance)
+# admin.site.register(BookInstance)
 admin.site.register(Language)
+
 
 class BooksInline(admin.TabularInline):
     model = Book
@@ -23,9 +24,12 @@ class BooksInstance2Inline(admin.TabularInline):
     model = BookInstance
     extra = 0
 
+
 admin.site.register(Author, AuthorAdmin)
-#admin.site.register(Book)
-#admin.site.register(BookInstance)
+
+
+# admin.site.register(Book)
+# admin.site.register(BookInstance)
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
