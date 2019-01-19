@@ -45,3 +45,9 @@ class BookInstanceAdmin(admin.ModelAdmin):
             'fields': ('status', 'due_back')
         }),
     )
+
+
+"""
+some comments here to check git synch
+second try
+"""
