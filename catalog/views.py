@@ -1,14 +1,10 @@
 from django.shortcuts import render
+from django.views import generic
 
 # Create your views here.
 from .models import Book, Author, BookInstance, Genre
 from django.views import generic
 
-class BookListView(generic.ListView):
-    model = Book
-
-class BookDetailView(generic.DetailView):
-    model = Book
 
 def index(request):
     """
@@ -30,4 +26,20 @@ def index(request):
                  'num_instances_available': num_instances_available, 'num_authors': num_authors},
     )
 
-# test
+class BookListView(generic.ListView):
+    model = Book
+    paginate_by = 10
+
+    #context_object_name = 'my_book_list'  # ваше собственное имя переменной контекста в шаблоне
+    #queryset = Book.objects.filter(title__icontains='book')[:5]  # Получение 5 книг, содержащих слово 'war' в заголовке
+    #queryset = Book.objects.all()
+    #template_name = 'books/my_arbitrary_template_name_list.html'  # Определение имени вашего шаблона и его расположения
+
+class BookDetailView(generic.DetailView):
+    model = Book
+
+class AuthorListView(generic.ListView):
+    model = Author
+
+class AuthorDetailView(generic.DetailView):
+    model = Author

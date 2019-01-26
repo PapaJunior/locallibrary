@@ -52,9 +52,6 @@ class Book(models.Model):
           Creates a string for the Genre. This is required to display genre in Admin.
         """
 
-        with open("f:/book_log.log", "+a") as file:
-            file.write("%s %s" % (datetime.now(), self.genre.all()))
-
         return ', '.join([genre.name for genre in self.genre.all()[:3]])
 
     display_genre.short_description = 'Genre'
